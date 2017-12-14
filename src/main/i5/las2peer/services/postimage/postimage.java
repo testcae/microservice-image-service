@@ -77,8 +77,8 @@ public class postimage extends RESTService {
 
   @Api
   @SwaggerDefinition(
-      info = @Info(title = "image-service", version = "",
-          description = "",
+      info = @Info(title = "image-service", version = "0.1",
+          description = "Image ",
           termsOfService = "",
           contact = @Contact(name = "Melisa Cecilia", email = "CAEAddress@gmail.com") ,
           license = @License(name = "BSD",
@@ -107,12 +107,18 @@ public class postimage extends RESTService {
   })
   @ApiOperation(value = "postimage", notes = " ")
   public Response postimage(String image) {
-    JSONObject image_JSON = (JSONObject) JSONValue.parse(image);
-
+   classes.image payloadimageObject = new classes().new image();
+   try { 
+       payloadimageObject.fromJSON(image);
+   } catch (Exception e) { 
+       e.printStackTrace();
+       JSONObject result = new JSONObject();
+       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
+   }
     // postimage
     boolean postimage_condition = true;
     if(postimage_condition) {
-      JSONObject result = new JSONObject();
+      JSONObject result = new classes().new image().toJSON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(result.toJSONString()).build();
     }
     return null;
@@ -129,7 +135,7 @@ public class postimage extends RESTService {
    * 
    */
   @GET
-  @Path("/")
+  @Path("/get")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
@@ -141,7 +147,7 @@ public class postimage extends RESTService {
     // 
     boolean _condition = true;
     if(_condition) {
-      JSONObject  = new JSONObject();
+      JSONObject  = new classes().new image().toJSON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(.toJSONString()).build();
     }
     return null;

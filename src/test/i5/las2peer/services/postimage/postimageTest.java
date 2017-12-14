@@ -124,7 +124,7 @@ public class postimageTest {
     try {
 
       c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("GET", mainPath + "/", "",
+      ClientResponse result = c.sendRequest("GET", mainPath + "/get", "",
         MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON, new HashMap<String,String>());
       assertTrue(true); // change here
       System.out.println("Result of 'testgetImage': " + result.getResponse().trim());
