@@ -1,4 +1,4 @@
-package i5.las2peer.services.postimage;
+package i5.las2peer.services.uatTestImage;
 
 
 import java.net.HttpURLConnection;
@@ -19,7 +19,7 @@ import i5.las2peer.api.ManualDeployment;
 import i5.las2peer.api.ServiceException;
 import i5.las2peer.restMapper.RESTService;
 import i5.las2peer.restMapper.annotations.ServicePath;
-import i5.las2peer.services.postimage.database.DatabaseManager;
+import i5.las2peer.services.uatTestImage.database.DatabaseManager;
 import java.sql.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -44,7 +44,7 @@ import org.json.simple.*;
  */
 @ServicePath("image2/")
 @ManualDeployment
-public class postimage extends RESTService {
+public class uatTestImage extends RESTService {
 
 
   /*
@@ -58,7 +58,7 @@ public class postimage extends RESTService {
 
 
 
-  public postimage() {
+  public uatTestImage() {
 	super();
     // read and set properties values
     setFieldValues();
@@ -77,8 +77,8 @@ public class postimage extends RESTService {
 
   @Api
   @SwaggerDefinition(
-      info = @Info(title = "image-service", version = "0.1",
-          description = "Image ",
+      info = @Info(title = "image-service", version = "",
+          description = "",
           termsOfService = "",
           contact = @Contact(name = "Melisa Cecilia", email = "CAEAddress@gmail.com") ,
           license = @License(name = "BSD",
@@ -86,7 +86,7 @@ public class postimage extends RESTService {
   @Path("/")
   public static class RootResource {
 
-    private final postimage service = (postimage) Context.getCurrent().getService();
+    private final uatTestImage service = (uatTestImage) Context.getCurrent().getService();
 
       /**
    * 
