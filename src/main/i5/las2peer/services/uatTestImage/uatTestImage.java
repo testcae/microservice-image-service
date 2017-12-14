@@ -78,7 +78,7 @@ public class uatTestImage extends RESTService {
   @Api
   @SwaggerDefinition(
       info = @Info(title = "image-service", version = "",
-          description = "testaaaaa",
+          description = "",
           termsOfService = "",
           contact = @Contact(name = "Melisa Cecilia", email = "CAEAddress@gmail.com") ,
           license = @License(name = "BSD",
