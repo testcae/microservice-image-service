@@ -77,9 +77,9 @@ public class uatTestImage extends RESTService {
 
   @Api
   @SwaggerDefinition(
-      info = @Info(title = "image-service", version = "",
-          description = "",
-          termsOfService = "",
+      info = @Info(title = "image-service", version = "5",
+          description = "image",
+          termsOfService = "blubb",
           contact = @Contact(name = "Melisa Cecilia", email = "CAEAddress@gmail.com") ,
           license = @License(name = "BSD",
               url = "https://github.com/testcae/microservice-image-service/blob/master/LICENSE.txt") ) )
@@ -107,8 +107,14 @@ public class uatTestImage extends RESTService {
   })
   @ApiOperation(value = "", notes = " ")
   public Response (String ) {
-    JSONObject _JSON = (JSONObject) JSONValue.parse();
-
+   classes.image payloadObject = new classes().new image();
+   try { 
+       payloadObject.fromJSON();
+   } catch (Exception e) { 
+       e.printStackTrace();
+       JSONObject result = new JSONObject();
+       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
+   }
     // 
     boolean _condition = true;
     if(_condition) {
@@ -137,12 +143,18 @@ public class uatTestImage extends RESTService {
   })
   @ApiOperation(value = "image", notes = " ")
   public Response image(String ) {
-    JSONObject _JSON = (JSONObject) JSONValue.parse();
-
+   classes.image payloadObject = new classes().new image();
+   try { 
+       payloadObject.fromJSON();
+   } catch (Exception e) { 
+       e.printStackTrace();
+       JSONObject result = new JSONObject();
+       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
+   }
     // 
     boolean _condition = true;
     if(_condition) {
-      JSONObject  = new JSONObject();
+      JSONObject  = new classes().new image().toJSON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(.toJSONString()).build();
     }
     return null;
