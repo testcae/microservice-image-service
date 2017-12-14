@@ -121,7 +121,7 @@ public class postimage extends RESTService {
       JSONObject result = new classes().new image().toJSON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(result.toJSONString()).build();
     }
-    return try { 
+    try { 
         Connection conn = service.dbm.getConnection();
         PreparedStatement query = conn.prepareStatement(
           "INSERT INTO uatTest.tblImage(imageName, imageUrl) VALUES(?,?) ");
