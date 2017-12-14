@@ -165,24 +165,25 @@ public class uatTestImage extends RESTService {
        JSONObject result = new JSONObject();
        return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
    }
-    try { 
+    // 
+      try { 
         Connection conn = service.dbm.getConnection();
-        PreparedStatement query = conn.prepareStatement("SELECT * FROM uatTest.tblImage");
-        ResultSet result = query.executeQuery();
-        JSONArray jsonResult = new JSONArray();
-        while(result.next()) {
-          classes.image imageResult = new classes().new image();
-          imageResult.setimageName(result.getString("imageName"));
-          imageResult.setimageUrl(result.getString("imageUrl"));
-          imageResult.setimageId(result.getInt("imageId"));
-          jsonResult.add(imageResult.toJSON());
+        PreparedStatement query = conn.prepareStatement(
+          "INSERT INTO uatTest.tblImage(imageName, imageUrl) VALUES(?,?) ");
+        query.setString(1, payloadpayloadGetObject.getimageName());
+        query.setString(2, payloadpayloadGetObject.getimageUrl());
+        query.executeUpdate();
+
+        // get id of the new added image
+        ResultSet generatedKeys = query.getGeneratedKeys();
+        if (generatedKeys.next()) {
+          return Response.status(HttpURLConnection.HTTP_OK).entity(generatedKeys.getLong(1)).build();
+        } else {
+          return Response.status(HttpURLConnection.HTTP_OK).entity(0).build();
         }
-        // responseGetImage
-        return Response.status(HttpURLConnection.HTTP_OK).entity(jsonResult.toJSONString()).build();
     } catch(Exception e) {
       e.printStackTrace();
-      JSONObject result = new JSONObject(); 
-      return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity(result.toJSONString()).build();
+      return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity(0).build();
     }
   }
   }
