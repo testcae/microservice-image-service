@@ -1,4 +1,4 @@
-package i5.las2peer.services.uatTestImage.database;
+package i5.las2peer.services.postimage.database;
 
 import java.sql.Connection;
 import java.sql.SQLException;

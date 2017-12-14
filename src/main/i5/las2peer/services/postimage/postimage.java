@@ -1,4 +1,4 @@
-package i5.las2peer.services.uatTestImage;
+package i5.las2peer.services.postimage;
 
 
 import java.net.HttpURLConnection;
@@ -19,7 +19,7 @@ import i5.las2peer.api.ManualDeployment;
 import i5.las2peer.api.ServiceException;
 import i5.las2peer.restMapper.RESTService;
 import i5.las2peer.restMapper.annotations.ServicePath;
-import i5.las2peer.services.uatTestImage.database.DatabaseManager;
+import i5.las2peer.services.postimage.database.DatabaseManager;
 import java.sql.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -44,7 +44,7 @@ import org.json.simple.*;
  */
 @ServicePath("image2/")
 @ManualDeployment
-public class uatTestImage extends RESTService {
+public class postimage extends RESTService {
 
 
   /*
@@ -58,7 +58,7 @@ public class uatTestImage extends RESTService {
 
 
 
-  public uatTestImage() {
+  public postimage() {
 	super();
     // read and set properties values
     setFieldValues();
@@ -86,9 +86,68 @@ public class uatTestImage extends RESTService {
   @Path("/")
   public static class RootResource {
 
-    private final uatTestImage service = (uatTestImage) Context.getCurrent().getService();
+    private final postimage service = (postimage) Context.getCurrent().getService();
 
-    
+      /**
+   * 
+   * postimage
+   *
+   * 
+   * @param image  a JSONObject
+   * 
+   * @return Response 
+   * 
+   */
+  @POST
+  @Path("/post")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "postimage")
+  })
+  @ApiOperation(value = "postimage", notes = " ")
+  public Response postimage(String image) {
+    JSONObject image_JSON = (JSONObject) JSONValue.parse(image);
+
+    // postimage
+    boolean postimage_condition = true;
+    if(postimage_condition) {
+      JSONObject result = new JSONObject();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(result.toJSONString()).build();
+    }
+    return null;
+  }
+
+  /**
+   * 
+   * getImage
+   *
+   * 
+   *
+   * 
+   * @return Response 
+   * 
+   */
+  @GET
+  @Path("/")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "")
+  })
+  @ApiOperation(value = "getImage", notes = " ")
+  public Response getImage() {
+
+    // 
+    boolean _condition = true;
+    if(_condition) {
+      JSONObject  = new JSONObject();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(.toJSONString()).build();
+    }
+    return null;
+  }
+
+
 
   }
 

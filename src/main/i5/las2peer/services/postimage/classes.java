@@ -1,4 +1,4 @@
-package i5.las2peer.services.uatTestImage;
+package i5.las2peer.services.postimage;
 
 import java.util.*;
 import org.json.simple.*;
