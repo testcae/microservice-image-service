@@ -88,7 +88,66 @@ public class uatTestImage extends RESTService {
 
     private final uatTestImage service = (uatTestImage) Context.getCurrent().getService();
 
-    
+      /**
+   * 
+   * imageGet
+   *
+   * 
+   *
+   * 
+   * @return Response 
+   * 
+   */
+  @GET
+  @Path("/get")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "image")
+  })
+  @ApiOperation(value = "imageGet", notes = " ")
+  public Response imageGet() {
+
+    // image
+    boolean image_condition = true;
+    if(image_condition) {
+      JSONObject image = new JSONObject();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(image.toJSONString()).build();
+    }
+    return null;
+  }
+
+  /**
+   * 
+   * postImage
+   *
+   * 
+   * @param imageID  a JSONObject
+   * 
+   * @return Response 
+   * 
+   */
+  @POST
+  @Path("/")
+  @Produces(MediaType.TEXT_PLAIN)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "")
+  })
+  @ApiOperation(value = "postImage", notes = " ")
+  public Response postImage(String imageID) {
+    JSONObject imageID_JSON = (JSONObject) JSONValue.parse(imageID);
+
+    // 
+    boolean _condition = true;
+    if(_condition) {
+      String  = "Some String";
+      return Response.status(HttpURLConnection.HTTP_OK).entity().build();
+    }
+    return null;
+  }
+
+
 
   }
 
