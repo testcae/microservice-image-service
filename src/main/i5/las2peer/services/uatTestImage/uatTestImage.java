@@ -125,8 +125,8 @@ public class uatTestImage extends RESTService {
         Connection conn = service.dbm.getConnection();
         PreparedStatement query = conn.prepareStatement(
           "INSERT INTO uatTest.tblImage(imageName, imageUrl) VALUES(?,?) ");
-        query.setString(1, payloadpayloadPostImageObject.getimageName());
-        query.setString(2, payloadpayloadPostImageObject.getimageUrl());
+        query.setString(1, payloadimageObject.getimageName());
+        query.setString(2, payloadimageObject.getimageUrl());
         query.executeUpdate();
 
         // get id of the new added image
