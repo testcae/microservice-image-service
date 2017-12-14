@@ -90,39 +90,10 @@ public class uatTestImage extends RESTService {
 
       /**
    * 
-   * imageGet
-   *
    * 
    *
    * 
-   * @return Response 
-   * 
-   */
-  @GET
-  @Path("/get")
-  @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.TEXT_PLAIN)
-  @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "image")
-  })
-  @ApiOperation(value = "imageGet", notes = " ")
-  public Response imageGet() {
-
-    // image
-    boolean image_condition = true;
-    if(image_condition) {
-      JSONObject image = new JSONObject();
-      return Response.status(HttpURLConnection.HTTP_OK).entity(image.toJSONString()).build();
-    }
-    return null;
-  }
-
-  /**
-   * 
-   * postImage
-   *
-   * 
-   * @param imageID  a JSONObject
+   * @param   a JSONObject
    * 
    * @return Response 
    * 
@@ -134,15 +105,45 @@ public class uatTestImage extends RESTService {
   @ApiResponses(value = {
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "")
   })
-  @ApiOperation(value = "postImage", notes = " ")
-  public Response postImage(String imageID) {
-    JSONObject imageID_JSON = (JSONObject) JSONValue.parse(imageID);
+  @ApiOperation(value = "", notes = " ")
+  public Response (String ) {
+    JSONObject _JSON = (JSONObject) JSONValue.parse();
 
     // 
     boolean _condition = true;
     if(_condition) {
       String  = "Some String";
       return Response.status(HttpURLConnection.HTTP_OK).entity().build();
+    }
+    return null;
+  }
+
+  /**
+   * 
+   * image
+   *
+   * 
+   * @param   a JSONObject
+   * 
+   * @return Response 
+   * 
+   */
+  @GET
+  @Path("/")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "")
+  })
+  @ApiOperation(value = "image", notes = " ")
+  public Response image(String ) {
+    JSONObject _JSON = (JSONObject) JSONValue.parse();
+
+    // 
+    boolean _condition = true;
+    if(_condition) {
+      JSONObject  = new JSONObject();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(.toJSONString()).build();
     }
     return null;
   }

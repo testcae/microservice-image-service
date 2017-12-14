@@ -92,20 +92,20 @@ public class uatTestImageTest {
 
   /**
    * 
-   * Test for the imageGet method.
+   * Test for the  method.
    * 
    */
   @Test
-  public void testimageGet() {
+  public void test() {
     MiniClient c = new MiniClient();
     c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
     try {
-
+      JSONObject  = new JSONObject();
       c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("GET", mainPath + "/get", "",
-        MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON, new HashMap<String,String>());
+      ClientResponse result = c.sendRequest("POST", mainPath + "/", .toJSONString(),
+        MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN, new HashMap<String,String>());
       assertTrue(true); // change here
-      System.out.println("Result of 'testimageGet': " + result.getResponse().trim());
+      System.out.println("Result of 'test': " + result.getResponse().trim());
     } catch (Exception e) {
       e.printStackTrace();
       fail("Exception: " + e);
@@ -114,20 +114,20 @@ public class uatTestImageTest {
 
   /**
    * 
-   * Test for the postImage method.
+   * Test for the image method.
    * 
    */
   @Test
-  public void testpostImage() {
+  public void testimage() {
     MiniClient c = new MiniClient();
     c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
     try {
-      JSONObject imageID = new JSONObject();
+      JSONObject  = new JSONObject();
       c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("POST", mainPath + "/", imageID.toJSONString(),
-        MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN, new HashMap<String,String>());
+      ClientResponse result = c.sendRequest("GET", mainPath + "/", .toJSONString(),
+        MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, new HashMap<String,String>());
       assertTrue(true); // change here
-      System.out.println("Result of 'testpostImage': " + result.getResponse().trim());
+      System.out.println("Result of 'testimage': " + result.getResponse().trim());
     } catch (Exception e) {
       e.printStackTrace();
       fail("Exception: " + e);
