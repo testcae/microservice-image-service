@@ -92,20 +92,20 @@ public class uatTestImageTest {
 
   /**
    * 
-   * Test for the  method.
+   * Test for the imageGet method.
    * 
    */
   @Test
-  public void test() {
+  public void testimageGet() {
     MiniClient c = new MiniClient();
     c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
     try {
-      JSONObject  = new JSONObject();
+      JSONObject payloadGet = new JSONObject();
       c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("POST", mainPath + "/", .toJSONString(),
+      ClientResponse result = c.sendRequest("POST", mainPath + "/get", payloadGet.toJSONString(),
         MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN, new HashMap<String,String>());
       assertTrue(true); // change here
-      System.out.println("Result of 'test': " + result.getResponse().trim());
+      System.out.println("Result of 'testimageGet': " + result.getResponse().trim());
     } catch (Exception e) {
       e.printStackTrace();
       fail("Exception: " + e);
@@ -114,20 +114,20 @@ public class uatTestImageTest {
 
   /**
    * 
-   * Test for the image method.
+   * Test for the imagePost method.
    * 
    */
   @Test
-  public void testimage() {
+  public void testimagePost() {
     MiniClient c = new MiniClient();
     c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
     try {
-      JSONObject  = new JSONObject();
+      JSONObject payloadPost = new JSONObject();
       c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("GET", mainPath + "/", .toJSONString(),
+      ClientResponse result = c.sendRequest("GET", mainPath + "/post", payloadPost.toJSONString(),
         MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, new HashMap<String,String>());
       assertTrue(true); // change here
-      System.out.println("Result of 'testimage': " + result.getResponse().trim());
+      System.out.println("Result of 'testimagePost': " + result.getResponse().trim());
     } catch (Exception e) {
       e.printStackTrace();
       fail("Exception: " + e);

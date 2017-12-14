@@ -90,26 +90,26 @@ public class uatTestImage extends RESTService {
 
       /**
    * 
-   * 
+   * imageGet
    *
    * 
-   * @param   a JSONObject
+   * @param payloadGet  a JSONObject
    * 
    * @return Response 
    * 
    */
   @POST
-  @Path("/")
+  @Path("/get")
   @Produces(MediaType.TEXT_PLAIN)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responseImage")
   })
-  @ApiOperation(value = "", notes = " ")
-  public Response (String ) {
-   classes.image payloadObject = new classes().new image();
+  @ApiOperation(value = "imageGet", notes = " ")
+  public Response imageGet(String payloadGet) {
+   classes.image payloadpayloadGetObject = new classes().new image();
    try { 
-       payloadObject.fromJSON();
+       payloadpayloadGetObject.fromJSON(payloadGet);
    } catch (Exception e) { 
        e.printStackTrace();
        JSONObject result = new JSONObject();
@@ -140,36 +140,36 @@ public class uatTestImage extends RESTService {
 
   /**
    * 
-   * image
+   * imagePost
    *
    * 
-   * @param   a JSONObject
+   * @param payloadPost  a JSONObject
    * 
    * @return Response 
    * 
    */
   @GET
-  @Path("/")
+  @Path("/post")
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responsePost")
   })
-  @ApiOperation(value = "image", notes = " ")
-  public Response image(String ) {
-   classes.image payloadObject = new classes().new image();
+  @ApiOperation(value = "imagePost", notes = " ")
+  public Response imagePost(String payloadPost) {
+   classes.image payloadpayloadPostObject = new classes().new image();
    try { 
-       payloadObject.fromJSON();
+       payloadpayloadPostObject.fromJSON(payloadPost);
    } catch (Exception e) { 
        e.printStackTrace();
        JSONObject result = new JSONObject();
        return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
    }
-    // 
-    boolean _condition = true;
-    if(_condition) {
-      JSONObject  = new classes().new image().toJSON();
-      return Response.status(HttpURLConnection.HTTP_OK).entity(.toJSONString()).build();
+    // responsePost
+    boolean responsePost_condition = true;
+    if(responsePost_condition) {
+      JSONObject resultPost = new classes().new image().toJSON();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(resultPost.toJSONString()).build();
     }
     return null;
   }
